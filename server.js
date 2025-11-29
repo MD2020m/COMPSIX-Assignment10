@@ -68,6 +68,14 @@ app.get('/health', (req, res) => {
     });
 });
 
+// Add a new endpoint
+app.get('/new', (req, res) => {
+    res.json({
+        status: 'OK',
+        message: 'I added this endpoint to check out the auto deployment'
+    })
+})
+
 // Root endpoint
 app.get('/', (req, res) => {
     res.json({
@@ -75,6 +83,7 @@ app.get('/', (req, res) => {
         version: '1.0.0',
         endpoints: {
             health: '/health',
+            new: '/new',
             register: 'POST /api/register',
             login: 'POST /api/login',
             tasks: 'GET /api/tasks (requires auth)',
